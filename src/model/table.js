@@ -1,16 +1,35 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+
 
 // Define the schema
-const tableSchema = new Schema({
-  Capacity: {
-    type: Number,
-    required: true,
-  },
-  Status: {
+const tableSchema = new mongoose.Schema({
+  name:{
     type: String,
-    required: true,
+    required: true
   },
+  phoneNumber: {
+    type: String,
+    required: true
+  },
+  personCount: {
+    type: Number,
+    required: true
+  },
+  status: {
+    type: String,
+    default:"Available"
+  },
+  day:{
+    type: Date,
+    required: true
+  },
+  time:{
+    type: String,
+    required: true
+  },
+  message: {
+    type: String,
+  }
 });
 
 const Table = mongoose.model('Table', tableSchema);
