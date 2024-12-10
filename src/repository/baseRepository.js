@@ -12,6 +12,12 @@ class BaseRepository {
     async findById(id) {
         return this.model.findById(id).exec();
     }
+    async findOneAndUpdate(filters, updateData) {
+        return this.model.findOneAndUpdate(filters, updateData, {
+            new: true, // Returns the updated document
+            runValidators: true, // Ensures validation rules are applied
+        }).exec();
+    }
 
     async find(filters) {
         return this.model.find(filters).exec();

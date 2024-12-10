@@ -7,12 +7,14 @@ const { dbConnect } = require('./src/config/db')
 const userRouter = require('./src/route/user')
 const menuRouter = require('./src/route/menu')
 const tableRouter = require('./src/route/table')
+const orderRouter = require('./src/route/order')
 
 app.use(express.json())
 app.use(cors())
 app.use('/api/user',userRouter)
 app.use('/api/menu',menuRouter)
 app.use('/api/table',tableRouter)
+app.use('/api/order',orderRouter)
 app.use('/upload', express.static(path.join(__dirname, 'src', 'upload')));
 
 dbConnect()
